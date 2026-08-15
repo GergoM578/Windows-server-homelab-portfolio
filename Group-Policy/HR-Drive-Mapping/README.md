@@ -15,12 +15,26 @@ The shared folder is accessed through a DFS namespace, providing users with a co
 - **Target:** HR users
 
 ## Implementation
+### GPO Configuration
+
+The drive mapping was configured through Group Policy Preferences on the domain controller.
+
+![HR Drive Mapping GPO Configuration](screenshots/hr-drive-mapping-server-side-gpo.png)
 
 The drive mapping was configured using Group Policy Preferences and linked to the Organizational Unit containing the HR user accounts.
 
 When an HR user signs in to a domain-joined workstation, the H: drive is automatically mapped to the Human Resources DFS path.
 
 ## Testing and Verification
+### Client-Side Verification
+
+The `net use` command confirmed that the H: drive was mapped to the DFS namespace path.
+
+![HR Drive Mapping Net Use Verification](screenshots/hr-drive-mapping-client-side-net-use.png)
+
+The mapped Human Resources drive was also verified in Windows File Explorer.
+
+![HR Drive Mapping File Explorer Verification](screenshots/hr-drive-mapping-client-side-file-explorer.png)
 
 The drive mapping and user access were tested on a domain-joined Windows client.
 
