@@ -25,6 +25,12 @@ The DFS Namespace was configured in the `London.local` domain.
 
 - WSERVER1
 
+  ### Namespace Structure
+
+The domain-based DFS Namespace contains the company shared resources configured under `\\London.local\DFS`.
+
+![DFS Namespace Structure](screenshots/dfs-namespace-server-side-structure.png)
+
 The namespace provides centralized access to company shared resources, including:
 
 - CompanyData
@@ -45,6 +51,11 @@ For example:
 \\London.local\DFS\HumanResources
 ```
 
+### Folder Targets
+
+The HumanResources namespace folder is configured with folder targets on both WSERVER1 and WSERVER4.
+
+![DFS Namespace Folder Targets](screenshots/dfs-namespace-server-side-folder-target.png)
 ## Testing and Verification
 
 The namespace was tested from the domain-joined Windows 11 client.
@@ -56,6 +67,12 @@ The client successfully accessed the DFS namespace using:
 ```
 
 The configured namespace folders were visible and accessible from the client.
+
+### Client-Side Access
+
+The domain-joined Windows 11 HR client successfully accessed the HumanResources folder through the DFS Namespace.
+
+![DFS Namespace Client Access](screenshots/dfs-namespace-client-side-humanresources-access.png)
 
 ## Result
 
