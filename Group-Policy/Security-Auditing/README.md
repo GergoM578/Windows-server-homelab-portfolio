@@ -29,6 +29,14 @@ The audit settings were configured under:
 
 The GPO was applied to domain-joined workstations through the Workstations OU.
 
+### GPO Configuration
+
+Advanced auditing was centrally configured through the Rastro-Workstation Audit Policy and linked to the Workstation OU.
+
+The policy records both successful and failed logon attempts and audits account lockout failures.
+
+![Security Auditing Server-Side GPO](screenshots/security-auditing-server-side-gpo.png)
+
 ## Testing and Verification
 
 The applied audit configuration was verified using Group Policy Results on the Windows client.
@@ -55,6 +63,14 @@ Logon Type 2 identified the authentication attempt as an interactive logon at th
 During testing, Group Policy processing initially failed because the workstation clock was not correctly synchronized with the domain environment.
 
 The workstation time zone was corrected and Windows Time synchronization was restored. Group Policy then updated successfully.
+
+### Client-Side Verification
+
+A failed interactive logon attempt was verified in the Windows Security event log.
+
+Event ID 4625 confirmed the failed authentication attempt for the domain test account, with Logon Type 2 and the failure reason recorded as an unknown user name or bad password.
+
+![Failed Logon Event 4625](screenshots/security-auditing-client-side-event-4625.png)
 
 ## Result
 
