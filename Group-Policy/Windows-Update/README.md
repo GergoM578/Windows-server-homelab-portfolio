@@ -26,6 +26,11 @@ The following settings were configured:
 This prevents automatic update-related restarts during the configured active hours.
 
 ## Implementation
+### GPO Configuration
+
+Windows Update settings were centrally configured through Group Policy for domain-joined workstations.
+
+![Windows Update Server-Side GPO Configuration](screenshots/windows-update-server-side-gpo.png)
 
 The Windows Update policy was configured under Computer Configuration and applied to domain-joined workstations through the Workstations OU.
 
@@ -50,6 +55,13 @@ The Group Policy Results report confirmed:
 - Automatic download and scheduled installation was configured
 - Active hours were configured from 08:00 to 18:00
 - Automatic restart during active hours was disabled
+  ### Client-Side Verification
+
+The Group Policy Results report confirmed that the Windows Update policy was successfully applied to the client workstation.
+
+The report verified automatic update installation at 03:00 and confirmed that automatic restarts were disabled during the configured active hours from 08:00 to 18:00.
+
+![Windows Update Client-Side Group Policy Result](screenshots/windows-update-client-side-gpresult.png)
 
 ## Result
 
