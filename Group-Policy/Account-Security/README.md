@@ -39,11 +39,11 @@ The domain password and account lockout policies were centrally configured throu
 
 #### Password Policy
 
-![Domain Password Policy](screenshots/account-security-server-side-password-policy.png)
+![Domain Password Policy](screenshot/account-security-server-side-password-policy.png)
 
 #### Account Lockout Policy
 
-![Account Lockout Policy](screenshots/account-security-server-side-lockout-policy.png)
+![Account Lockout Policy](screenshot/account-security-server-side-lockout-policy.png)
 
 ## Testing and Verification
 
@@ -71,7 +71,7 @@ The account lockout policy was tested using a domain test account. After the con
 
 The locked account status was verified in Active Directory Users and Computers, where the administrator could also manually unlock the account.
 
-![Locked Domain User Account](screenshots/account-security-server-side-user-lockout.png)
+![Locked Domain User Account](screenshot/account-security-server-side-user-lockout.png)
 
 ## Result
 
