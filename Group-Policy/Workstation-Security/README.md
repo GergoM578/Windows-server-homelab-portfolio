@@ -40,18 +40,7 @@ The security baseline GPO was linked to the Workstations Organizational Unit so 
 This allows workstation security settings to be managed centrally rather than configured individually on each computer.
 
 ## Testing and Verification
-### Client-Side Verification
 
-Microsoft Defender Antivirus and Real-Time Protection were verified on the domain-joined workstation using PowerShell.
-
-![Microsoft Defender Verification](screenshots/workstation-security-baseline-client-side-defender.png)
-
-The effective Domain firewall configuration was verified using a Group Policy Results report. The report confirmed that the firewall was enabled, inbound connections were blocked, outbound connections were allowed, and the winning GPO was the Rastro Workstation Security Baseline.
-
-![Windows Firewall Group Policy Result](screenshots/workstation-security-baseline-client-side-firewall-gpresult.png)
-
-
-The policy was tested on a domain-joined Windows client.
 
 ### Commands Used
 
@@ -67,6 +56,19 @@ The policy was tested on a domain-joined Windows client.
 - Confirmed real-time protection was enabled
 - Confirmed the Windows Defender Firewall Domain profile was enabled
 - Verified the effective firewall configuration using a detailed `gpresult` HTML report
+
+  ### Client-Side Verification
+
+Microsoft Defender Antivirus and Real-Time Protection were verified on the domain-joined workstation using PowerShell.
+
+![Microsoft Defender Verification](screenshots/workstation-security-baseline-client-side-defender.png)
+
+The effective Domain firewall configuration was verified using a Group Policy Results report. The report confirmed that the firewall was enabled, inbound connections were blocked, outbound connections were allowed, and the winning GPO was the Rastro Workstation Security Baseline.
+
+![Windows Firewall Group Policy Result](screenshots/workstation-security-baseline-client-side-firewall-gpresult.png)
+
+
+The policy was tested on a domain-joined Windows client.
 
 ## Result
 
