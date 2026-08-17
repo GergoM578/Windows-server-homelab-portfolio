@@ -33,6 +33,16 @@ The replication was configured as:
 
 This allows changes made to replicated data on either server to be synchronized with the other server.
 
+### Replication Group Configuration
+
+The `Rastro-replication` replication group contains WSERVER1 and WSERVER4 as enabled members of the replicated `Rastro` folder.
+
+![DFS Replication Memberships](screenshots/dfs-replication-server-side-memberships.png)
+
+The connection configuration confirms enabled replication connections in both directions between WSERVER1 and WSERVER4.
+
+![DFS Replication Connections](screenshots/dfs-replication-server-side-connection.png)
+
 ## Implementation
 
 DFS Replication was installed and configured on both Windows Servers.
@@ -47,9 +57,25 @@ Replication was tested in both directions.
 
 ### WSERVER1 → WSERVER4
 
+The test file was created in `C:\Rastro` on WSERVER1.
+
+![Replication Test WSERVER1 Source](screenshots/dfs-replication-test-wserver1-source.png)
+
+The same file successfully appeared in `C:\Rastro` on WSERVER4.
+
+![Replication Test WSERVER4 Received](screenshots/dfs-replication-test-wserver4-received.png)
+
 A test file was created on WSERVER1 and successfully appeared on WSERVER4.
 
 ### WSERVER4 → WSERVER1
+
+A second test file was created in `C:\Rastro` on WSERVER4.
+
+![Replication Test WSERVER4 Source](screenshots/dfs-replication-test-wserver4-source.png)
+
+The file successfully appeared in `C:\Rastro` on WSERVER1.
+
+![Replication Test WSERVER1 Received](screenshots/dfs-replication-test-wserver1-received.png)
 
 A second test file was created on WSERVER4 and successfully replicated back to WSERVER1.
 
@@ -64,6 +90,10 @@ sc query dfsr
 dfsrdiag pollad
 dfsrdiag replicationstate
 ```
+
+The DFS Replication service was confirmed as running, and DFSR successfully polled Active Directory for its current configuration.
+
+![DFSR Diagnostic Verification](screenshots/dfs-replication-server-side-diagnostics.png)
 
 These commands were used to verify that the DFS Replication service was running, refresh Active Directory configuration information, and inspect the current replication state.
 
