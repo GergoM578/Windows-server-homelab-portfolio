@@ -8,45 +8,69 @@ This demonstrates centralized access management rather than assigning permission
 
 ## Access Control Design
 
-Active Directory security groups were used to manage access to shared resources.
+Active Directory security groups were used to manage access to the HumanResources folder.
 
-For the HumanResources folder, separate security groups were used to provide different levels of access.
+The following security groups were configured:
 
-This allows permissions to be managed by changing group membership rather than modifying folder permissions for individual users.
+- `GS_HR_Read`
+- `GS_HR_Modify`
+- `DL_HR_Read`
+- `DL_HR_Modify`
+
+The access model follows this structure:
+
+`User → Global Security Group → Domain Local Group → Folder Permission`
+
+For example, `GS_HR_Modify` is nested inside `DL_HR_Modify`, allowing permissions to be managed through group membership rather than assigning permissions directly to individual users.
+
+![Active Directory Security Groups](screenshots/dfs-permissions-server-side-security-groups.png)
 
 ## Share and NTFS Permissions
 
-Access to the shared folders was controlled using a combination of:
+The HumanResources folder is located at:
 
-- SMB Share permissions
-- NTFS permissions
-- Active Directory security groups
+```text
+C:\Rastro\HumanResources
+```
 
-NTFS permissions were used to provide the required level of access to files and folders.
+NTFS permissions were assigned to the Domain Local security groups:
 
-The configuration was tested to ensure that authorized users could access and modify resources according to their assigned permissions.
+| Security Group | NTFS Permission |
+|---|---|
+| `DL_HR_Read` | Read & Execute |
+| `DL_HR_Modify` | Modify |
+
+These permissions apply to the folder, subfolders, and files.
+
+![HumanResources NTFS Permissions](screenshots/dfs-permissions-server-side-ntfs.png)
+
+The SMB Share permission was configured as:
+
+```text
+Everyone → Change
+```
+
+Detailed access control is then enforced through the NTFS permissions and Active Directory security groups.
+
+![HumanResources Share Permissions](screenshots/dfs-permissions-server-side-share.png)
 
 ## DFS and Permissions
 
-Users accessed the HumanResources resource through the DFS Namespace:
+Users access the HumanResources resource through the DFS Namespace:
 
 ```text
 \\London.local\DFS\HumanResources
 ```
 
-The DFS Namespace provides the access path, while the underlying Share and NTFS permissions determine what the user is allowed to do with the files and folders.
+The DFS Namespace provides the centralized access path, while the underlying Share and NTFS permissions determine what users are allowed to do with the files and folders.
 
 ## Testing and Verification
 
-Access was tested using domain user accounts on the Windows 11 client.
+Access was tested using a domain user account on the Windows 11 client `HR`.
 
-Testing included:
+The HumanResources DFS resource was mapped as the `H:` drive. An authorized user with Modify access successfully created a test file inside the shared folder.
 
-- Accessing the HumanResources folder through the DFS Namespace
-- Creating files and folders
-- Editing existing files
-- Verifying access based on Active Directory security group membership
-- Confirming that Share and NTFS permissions worked together correctly
+![Client Modify Permission Test](screenshots/dfs-permission-client-side-modify-test.png)
 
 During testing, Share permissions were adjusted after identifying that NTFS Modify permission alone did not allow the expected file creation because the Share permission was more restrictive.
 
@@ -54,6 +78,6 @@ After correcting the Share permission, authorized users were able to create and 
 
 ## Result
 
-DFS folder access was successfully controlled using Active Directory security groups together with Share and NTFS permissions.
+The testing confirmed that Active Directory security groups, Share permissions, and NTFS permissions work together to provide controlled access to the HumanResources DFS resource.
 
-The testing also demonstrated how effective access is determined by the combination of Share and NTFS permissions when users access resources over the network.
+The configuration demonstrates centralized, group-based access management in a Windows Server environment.
