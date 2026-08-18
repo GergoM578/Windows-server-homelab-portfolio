@@ -1,6 +1,6 @@
 # Windows Server Homelab Portfolio
 
-Hi, I'm Gergő Molnár.
+Hi, I'm Gergo Molnar.
 
 Welcome to my Windows Server Homelab portfolio. This repository contains hands-on projects that demonstrate my practical experience with Windows Server administration and enterprise technologies.
 
