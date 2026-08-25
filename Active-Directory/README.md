@@ -38,6 +38,9 @@ Parent and child domain configuration and Active Directory infrastructure.
 ### [Users, Groups and OUs](Users-Groups-OUs/README.md)
 Organizational Units, domain users, security groups, and group-based administration.
 
+### [Cross-Domain Access](Cross-Domain-Access/README.md)
+Group-based Read and Modify access for Wembley domain users to resources hosted in the London domain.
+
 ### [Administrative Tasks](Administrative-Tasks/README.md)
 Common Active Directory administration and management tasks.
 
@@ -52,6 +55,8 @@ Domain connectivity, authentication, DNS, domain join, and troubleshooting.
 - Organizational Unit Management
 - User and Security Group Management
 - Group Scope and Group Nesting
+- Cross-Domain Access Control
+- NTFS Permission Management
 - Windows Domain Join
 - DNS Integration
 - Active Directory Troubleshooting
