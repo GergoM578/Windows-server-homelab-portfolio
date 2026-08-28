@@ -52,7 +52,7 @@ The Forward Lookup Zones include:
 
 These zones provide hostname-to-IP address resolution and contain the DNS records required by Active Directory services.
 
-![Forward Lookup Zones](Screenshots/01-forward-lookup-zones.png)
+![Forward Lookup Zones](screenshots/01-forward-lookup-zones.png)
 
 ---
 
@@ -71,7 +71,7 @@ Using Active Directory-integrated DNS allows DNS information to participate in A
 
 Secure dynamic updates restrict dynamic DNS record registration and modification to authenticated domain members.
 
-![AD-Integrated DNS Zone and Secure Dynamic Updates](Screenshots/02-ad-integrated-zone-secure-updates.png)
+![AD-Integrated DNS Zone and Secure Dynamic Updates](screenshots/02-ad-integrated-zone-secure-updates.png)
 
 ---
 
@@ -101,7 +101,7 @@ PTR records were configured for infrastructure systems including:
 192.168.0.30 → WEM-CL-01.Wembley.London.local
 ```
 
-![Reverse DNS PTR Records](Screenshots/03-reverse-dns-ptr-records.png)
+![Reverse DNS PTR Records](screenshots/03-reverse-dns-ptr-records.png)
 
 ---
 
@@ -117,7 +117,7 @@ The HR workstation was registered with:
 
 The completed reverse lookup zone therefore contains PTR records for servers and domain workstations across the lab environment.
 
-![Reverse DNS with Client Registration](Screenshots/04-reverse-dns-with-dynamic-client-registration.png)
+![Reverse DNS with Client Registration](screenshots/04-reverse-dns-with-dynamic-client-registration.png)
 
 ### Reverse Lookup Verification
 
@@ -136,7 +136,7 @@ Address: 192.168.0.2
 
 This verifies that the PTR record and reverse lookup zone are functioning correctly.
 
-![Reverse DNS NSLookup Test](Screenshots/05-reverse-dns-nslookup-test.png)
+![Reverse DNS NSLookup Test](screenshots/05-reverse-dns-nslookup-test.png)
 
 ---
 
@@ -189,7 +189,7 @@ and WSERVER1 successfully resolved the external domain.
 
 This verifies that domain systems can use the internal DNS server for DNS resolution while WSERVER1 handles external queries through DNS forwarding.
 
-![DNS Forwarder Verification](Screenshots/06-dns-forwarder-verification.png)
+![DNS Forwarder Verification](screenshots/06-dns-forwarder-verification.png)
 
 ---
 
@@ -290,7 +290,7 @@ After the correction, the NAT IPv4 address was no longer returned and the correc
 
 The screenshot below documents the DNS result before and after the configuration change.
 
-![Multi-Homed Domain Controller DNS Troubleshooting](Screenshots/07-dns-multihomed-dc-troubleshooting.png)
+![Multi-Homed Domain Controller DNS Troubleshooting](screenshots/07-dns-multihomed-dc-troubleshooting.png)
 
 ---
 
@@ -329,7 +329,7 @@ static
 
 This helps prevent obsolete dynamically registered records from accumulating in the DNS database.
 
-![DNS Aging and Scavenging](Screenshots/08-dns-aging-scavenging.png)
+![DNS Aging and Scavenging](screenshots/08-dns-aging-scavenging.png)
 
 ---
 
@@ -366,7 +366,7 @@ This allows the parent DNS infrastructure to identify the DNS server responsible
 
 The delegation therefore provides a hierarchical DNS relationship rather than requiring WSERVER1 to host the child domain's DNS records directly.
 
-![Child Domain DNS Delegation](Screenshots/09-dns-child-domain-delegation.png)
+![Child Domain DNS Delegation](screenshots/09-dns-child-domain-delegation.png)
 
 ### Delegation Verification
 
