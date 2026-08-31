@@ -79,7 +79,7 @@ Authorization was performed using the domain administrative account:
 LONDON\Administrator
 ```
 
-![DHCP Active Directory Authorization](Screenshots/01-dhcp-ad-authorization.png)
+![DHCP Active Directory Authorization](screenshots/01-dhcp-ad-authorization.png)
 
 Active Directory authorization helps prevent unauthorized Windows DHCP servers from servicing domain networks.
 
@@ -88,7 +88,7 @@ The post-install configuration successfully:
 - Created the required DHCP security groups
 - Authorized the DHCP Server in Active Directory
 
-![DHCP Authorization Successful](Screenshots/02-dhcp-ad-authorization-success.png)
+![DHCP Authorization Successful](screenshots/02-dhcp-ad-authorization-success.png)
 
 ---
 
@@ -130,7 +130,7 @@ Ethernet 3   192.168.10.1   True
 Ethernet     192.168.0.10   False
 ```
 
-![DHCP Interface Binding](Screenshots/03-dhcp-interface-binding.png)
+![DHCP Interface Binding](screenshots/03-dhcp-interface-binding.png)
 
 This configuration restricts DHCP service to the isolated LAB-NET.
 
@@ -165,7 +165,7 @@ The following addresses were excluded:
 192.168.10.100 – 192.168.10.109
 ```
 
-![DHCP Scope Exclusion](Screenshots/04-dhcp-scope-exclusion.png)
+![DHCP Scope Exclusion](screenshots/04-dhcp-scope-exclusion.png)
 
 This means that although the configured scope begins at `.100`, DHCP will not dynamically assign the first ten addresses.
 
@@ -177,7 +177,7 @@ The effective initial dynamic allocation therefore begins at:
 
 The completed Address Pool confirms both the distribution range and exclusion range.
 
-![DHCP Address Pool](Screenshots/05-dhcp-address-pool.png)
+![DHCP Address Pool](screenshots/05-dhcp-address-pool.png)
 
 ---
 
@@ -218,7 +218,7 @@ DNS Server:    192.168.0.10
 DNS Suffix:    London.local
 ```
 
-![DHCP Client Lease Verification](Screenshots/06-dhcp-client-lease-verification.png)
+![DHCP Client Lease Verification](screenshots/06-dhcp-client-lease-verification.png)
 
 The first assigned address was `192.168.10.110`, confirming that the exclusion range `.100–.109` was being respected.
 
@@ -238,7 +238,7 @@ Client Name: HR.London.local
 Type: DHCP
 ```
 
-![DHCP Address Lease](Screenshots/07-dhcp-address-lease.png)
+![DHCP Address Lease](screenshots/07-dhcp-address-lease.png)
 
 This confirms that the DHCP Discover/Offer/Request/Acknowledge process completed successfully and that WSERVER1 recorded the active lease.
 
@@ -254,7 +254,7 @@ The reservation associates the client's MAC address with:
 192.168.10.110
 ```
 
-![DHCP Client Reservation](Screenshots/08-dhcp-client-reservation.png)
+![DHCP Client Reservation](screenshots/08-dhcp-client-reservation.png)
 
 Unlike manually configuring a static IPv4 address on the client, the client remains configured to obtain its address automatically through DHCP.
 
@@ -275,7 +275,7 @@ The following settings were enabled:
 - Discard A and PTR records when a lease is deleted
 - PTR updates enabled
 
-![DHCP Dynamic DNS Updates](Screenshots/09-dhcp-dynamic-dns-updates.png)
+![DHCP Dynamic DNS Updates](screenshots/09-dhcp-dynamic-dns-updates.png)
 
 This allows DHCP to coordinate client address allocation with DNS registration.
 
@@ -325,7 +325,7 @@ UserName       DomainName
 svc_DHCP_DNS   LONDON
 ```
 
-![DHCP DNS Credentials](Screenshots/10-dhcp-dns-credentials.png)
+![DHCP DNS Credentials](screenshots/10-dhcp-dns-credentials.png)
 
 The password is not displayed or stored in the project documentation.
 
@@ -392,7 +392,7 @@ After the HR-2 client obtained its DHCP lease, DNS contained the dynamically reg
 192.168.10.111 → HR-2.London.local
 ```
 
-![DHCP DNS PTR Record](Screenshots/11-dhcp-dns-ptr-record.png)
+![DHCP DNS PTR Record](screenshots/11-dhcp-dns-ptr-record.png)
 
 The timestamp on the PTR record demonstrates that it was dynamically registered rather than created as a static manual record.
 
@@ -429,7 +429,7 @@ The DHCP management console's built-in backup functionality was used.
 
 The resulting backup contains the DHCP configuration data required for recovery.
 
-![DHCP Server Backup](Screenshots/12-dhcp-server-backup.png)
+![DHCP Server Backup](screenshots/12-dhcp-server-backup.png)
 
 A restore was not performed against the working DHCP Server because doing so would unnecessarily modify a validated configuration.
 
@@ -486,7 +486,7 @@ The output confirmed:
 015 DNS Domain Name   → London.local
 ```
 
-![DHCP PowerShell Verification](Screenshots/13-dhcp-powershell-verification.png)
+![DHCP PowerShell Verification](screenshots/13-dhcp-powershell-verification.png)
 
 Using PowerShell alongside the graphical DHCP console provides an additional method of validating the server configuration.
 
