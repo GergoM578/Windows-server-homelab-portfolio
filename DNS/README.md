@@ -11,18 +11,18 @@ The project also demonstrates troubleshooting of a real DNS registration issue c
 ## Quick Navigation
 
 - [Environment](#environment)
-- [DNS Architecture](#dns-architecture)
 - [Forward Lookup Zones](#forward-lookup-zones)
-- [AD-Integrated DNS](#ad-integrated-dns)
-- [Reverse DNS and PTR Records](#reverse-dns-and-ptr-records)
-- [Dynamic Client Registration](#dynamic-client-registration)
+- [Active Directory-Integrated DNS](#active-directory-integrated-dns)
+- [Reverse Lookup Zone and PTR Records](#reverse-lookup-zone-and-ptr-records)
+- [Dynamic Client DNS Registration](#dynamic-client-dns-registration)
 - [External DNS Forwarding](#external-dns-forwarding)
-- [Multi-Homed DNS Troubleshooting](#multi-homed-dns-troubleshooting)
+- [Troubleshooting: Multi-Homed Domain Controller DNS Registration](#troubleshooting-multi-homed-domain-controller-dns-registration)
 - [DNS Aging and Scavenging](#dns-aging-and-scavenging)
-- [Parent-Child Domain Delegation](#parent-child-domain-delegation)
-- [Testing and Validation](#testing-and-validation)
+- [Parent-Child DNS Delegation](#parent-child-dns-delegation)
+- [DNS Testing and Validation](#dns-testing-and-validation)
+- [Troubleshooting Methodology](#troubleshooting-methodology)
 - [Skills Demonstrated](#skills-demonstrated)
-
+- [Project Outcome](#project-outcome)
 ---
 
 ## Environment
