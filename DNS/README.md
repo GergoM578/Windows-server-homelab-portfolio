@@ -8,6 +8,21 @@ The lab uses a hierarchical parent and child domain architecture with Active Dir
 
 The project also demonstrates troubleshooting of a real DNS registration issue caused by a multi-homed Domain Controller.
 
+## Quick Navigation
+
+- [Environment](#environment)
+- [DNS Architecture](#dns-architecture)
+- [Forward Lookup Zones](#forward-lookup-zones)
+- [AD-Integrated DNS](#ad-integrated-dns)
+- [Reverse DNS and PTR Records](#reverse-dns-and-ptr-records)
+- [Dynamic Client Registration](#dynamic-client-registration)
+- [External DNS Forwarding](#external-dns-forwarding)
+- [Multi-Homed DNS Troubleshooting](#multi-homed-dns-troubleshooting)
+- [DNS Aging and Scavenging](#dns-aging-and-scavenging)
+- [Parent-Child Domain Delegation](#parent-child-domain-delegation)
+- [Testing and Validation](#testing-and-validation)
+- [Skills Demonstrated](#skills-demonstrated)
+
 ---
 
 ## Environment
