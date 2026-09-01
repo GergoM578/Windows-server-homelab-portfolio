@@ -6,6 +6,23 @@ This project demonstrates the deployment, configuration, security, testing, and 
 
 The DHCP Server role was configured on **WSERVER1** in the `London.local` domain. Because the server is multi-homed and one network interface is connected to the physical LAN through VirtualBox Bridged Networking, a separate isolated network was created specifically for DHCP testing.
 
+## Quick Navigation
+
+- [Lab Environment](#lab-environment)
+- [Active Directory DHCP Authorization](#1-active-directory-dhcp-authorization)
+- [Securing DHCP Interface Binding](#2-securing-dhcp-interface-binding)
+- [Creating the DHCP Scope](#3-creating-the-dhcp-scope)
+- [DHCP Scope Options](#4-dhcp-scope-options)
+- [Client Lease Verification](#5-client-dhcp-lease-verification)
+- [DHCP Reservation](#7-dhcp-reservation)
+- [DHCP and DNS Dynamic Updates](#8-dhcp-and-dns-dynamic-updates)
+- [DHCP DNS Credentials](#9-dedicated-dhcp-dns-credentials)
+- [DHCP-DNS Integration Testing](#10-dhcpdns-integration-testing)
+- [DHCP Server Backup](#12-dhcp-server-backup)
+- [PowerShell Verification](#13-powershell-verification)
+- [Troubleshooting](#troubleshooting-and-design-decisions)
+- [Skills Demonstrated](#skills-demonstrated)
+
 The project covers:
 
 - DHCP Server authorization in Active Directory
