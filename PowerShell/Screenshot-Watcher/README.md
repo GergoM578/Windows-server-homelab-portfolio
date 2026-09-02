@@ -31,6 +31,10 @@ The solution:
 
 ## PowerShell Script
 
+### Source Code
+
+[View the complete PowerShell script](ScreenshotWatcher2.ps1)
+
 The script uses two locations:
 
 ```powershell
