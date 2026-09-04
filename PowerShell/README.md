@@ -1,64 +1,188 @@
-# PowerShell Automation Projects
+# PowerShell Automation Portfolio
 
 ## Overview
 
-This section of the Windows Server Homelab Portfolio demonstrates the use of PowerShell for Windows administration, automation, and repeatable system management tasks.
+This section of my Windows Server Homelab Portfolio demonstrates the use of **PowerShell for Windows administration and automation**.
 
-The projects focus on practical administrative scenarios, including file automation, scheduled task integration, Active Directory administration, and service account management.
+The projects focus on practical administrative tasks rather than isolated PowerShell commands. They demonstrate how PowerShell can be used to automate repetitive tasks, work with Windows Server components, manage security identities, and verify successful execution.
 
-Each project is documented separately and includes the PowerShell code, configuration steps, testing, and validation.
+The current PowerShell portfolio includes:
+
+1. **Screenshot Watcher Automation**
+2. **gMSA Service Account Automation**
+
+Additional PowerShell projects will be added as the homelab develops.
 
 ---
 
-## Projects
+## PowerShell Environment
 
-### [Screenshot Watcher Automation](Screenshot-Watcher/README.md)
+The projects were developed and tested primarily in the following environment:
 
-A PowerShell automation script that monitors the Windows screenshot directory and automatically copies newly created screenshots to a VirtualBox shared folder.
+- Windows Server 2022
+- Active Directory Domain Services
+- PowerShell
+- Windows Task Scheduler
+- Oracle VirtualBox
+- Domain: `London.local`
+- Primary Domain Controller: `WSERVER1`
 
-The solution is integrated with Windows Task Scheduler so that the script starts automatically when the administrator logs on.
+---
 
-Key areas demonstrated:
+# Projects
 
-- PowerShell scripting
-- File system automation
-- Conditional file processing
-- Scheduled Task integration
-- Automated script execution
+## 1. Screenshot Watcher Automation
+
+The Screenshot Watcher is a PowerShell automation project designed to detect newly created screenshot files and automatically copy them to a VirtualBox shared folder.
+
+The script:
+
+- Monitors a screenshot directory
+- Detects newly created `.png` files
+- Tracks files that have already been processed
+- Copies new screenshots to a destination folder
+- Runs continuously using a PowerShell loop
+- Uses Windows Task Scheduler to start automatically at user logon
+- Runs hidden in the background
+
+### Technologies and Concepts
+
+- PowerShell variables
+- Hash tables
+- `Get-ChildItem`
+- `ForEach-Object`
+- Conditional logic
+- `Copy-Item`
+- `Join-Path`
+- `Start-Sleep`
+- Continuous automation loops
+- Windows Task Scheduler
 - VirtualBox shared folders
-- Troubleshooting and validation
+
+### Project
+
+[View Screenshot Watcher Automation](Screenshot-Watcher/README.md)
 
 ---
 
-### gMSA Service Account Automation
+## 2. gMSA Service Account Automation
 
-Planned PowerShell and Active Directory automation project demonstrating the deployment and management of a Group Managed Service Account (gMSA).
+This project demonstrates the implementation of a **Group Managed Service Account (gMSA)** and its use with PowerShell automation.
 
-The project will include:
+A dedicated gMSA was created in Active Directory and authorized for use by `WSERVER1`.
+
+The managed service account was then used to execute a PowerShell system-report script through Windows Task Scheduler.
+
+The project demonstrates:
 
 - KDS Root Key configuration
-- gMSA creation
-- Authorized host configuration
-- PowerShell-based installation and testing
-- Scheduled Task or Windows Service integration
+- Group Managed Service Account creation
+- Server authorization for managed password retrieval
+- gMSA installation and validation
+- PowerShell system-report generation
+- Scheduled Task creation using PowerShell
+- Running automation under a dedicated service identity
+- Execution Policy troubleshooting
+- Verification of the actual execution identity
+- Scheduled Task result verification
 
-> Project documentation will be added after implementation.
+The final system report confirmed that the script executed as:
+
+```text
+LONDON\gMSA_Automation$
+```
+
+The Scheduled Task also returned:
+
+```text
+LastTaskResult : 0
+```
+
+confirming successful execution.
+
+### Technologies and Concepts
+
+- Active Directory
+- Group Managed Service Accounts (gMSA)
+- Key Distribution Service (KDS)
+- PowerShell
+- Windows Task Scheduler
+- `New-ADServiceAccount`
+- `Install-ADServiceAccount`
+- `Test-ADServiceAccount`
+- `New-ScheduledTaskAction`
+- `New-ScheduledTaskPrincipal`
+- `Register-ScheduledTask`
+- PowerShell Execution Policy
+- Service identity management
+
+### Project
+
+[View gMSA Service Account Automation](gMSA-Service-Account-Automation/README.md)
 
 ---
 
-## Skills Demonstrated
+# Skills Demonstrated
+
+These projects demonstrate practical experience with:
 
 - PowerShell scripting
 - Windows Server administration
-- Automation of repetitive administrative tasks
+- Administrative task automation
+- Active Directory integration
 - Windows Task Scheduler
-- Active Directory administration
+- File-system automation
 - Service account management
-- File system management
-- Troubleshooting and validation
+- gMSA implementation
+- PowerShell pipelines
+- Variables and objects
+- Conditional logic
+- Script troubleshooting
+- Execution Policy troubleshooting
+- Automated task verification
+- Security-focused administration
 
 ---
 
-## Project Goal
+# Repository Structure
 
-The goal of these projects is to demonstrate how PowerShell can be used to automate common Windows administration tasks, reduce repetitive manual work, and create more consistent administrative processes.
+```text
+PowerShell/
+│
+├── README.md
+│
+├── Screenshot-Watcher/
+│   ├── README.md
+│   ├── ScreenshotWatcher2.ps1
+│   └── Screenshots/
+│
+└── gMSA-Service-Account-Automation/
+    ├── README.md
+    ├── gMSA-SystemReport.ps1
+    └── Screenshots/
+```
+
+Each project contains its own documentation, PowerShell source code, implementation details, troubleshooting notes, and supporting screenshots.
+
+---
+
+# Future Development
+
+As my PowerShell knowledge develops, additional automation projects will be added to this section.
+
+Potential future projects include:
+
+- Active Directory user provisioning automation
+- Server health monitoring and reporting
+- Active Directory health checks
+- Administrative reporting tools
+
+The objective is to continue developing PowerShell skills through practical Windows Server administration scenarios rather than only individual command examples.
+
+---
+
+## Portfolio Goal
+
+The goal of this PowerShell portfolio is to demonstrate the ability to use scripting and automation to solve practical Windows administration problems.
+
+The projects combine PowerShell with technologies already implemented elsewhere in the homelab, including **Active Directory, Windows Server, security identities, scheduled tasks, and virtualization**.
